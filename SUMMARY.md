@@ -1,4 +1,4 @@
 # Summary
 
-* [社群简介](README.md)
+* [以太共识社群](README.md)
 
