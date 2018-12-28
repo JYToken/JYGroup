@@ -12,7 +12,8 @@
   - [如何获取 JYT 分红？](jyt/jyt20.md)
   - [如何把 JYT 兑换成 ETH ？](jyt/jyt30.md)
   - [如何获得 JYT ？](jyt/jyt40.md)
-  - [JYT 的价格算法和机制](jyt/jyt50.md)
+  - [JYT 的价格算法](jyt/jyt50.md)
+  - [结约基金](jyt/jyt60.md)
 
 ------
 
