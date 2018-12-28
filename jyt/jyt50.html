@@ -275,7 +275,50 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="jyt-&#x7684;&#x4EF7;&#x683C;&#x7B97;&#x6CD5;&#x548C;&#x673A;&#x5236;">JYT &#x7684;&#x4EF7;&#x683C;&#x7B97;&#x6CD5;&#x548C;&#x673A;&#x5236;</h1>
+                                <h1 id="jyt-&#x7684;&#x7B97;&#x6CD5;">JYT &#x7684;&#x7B97;&#x6CD5;</h1>
+<ol>
+<li><p>&#x521D;&#x59CB;&#x4EF7;&#x683C; 0.0000001 ETH / JYT</p>
+</li>
+<li><p>ethereumToTokens_</p>
+<pre><code>        uint256 _tokenPriceInitial = tokenPriceInitial_ * 1e18;
+        uint256 _tokensReceived = 
+         (
+            (
+                // underflow attempts BTFO
+                SafeMath.sub(
+                    (sqrt
+                        (
+                            (_tokenPriceInitial**2)
+                            +
+                            (2*(tokenPriceIncremental_ * 1e18)*(_ethereum * 1e18))
+                            +
+                            (((tokenPriceIncremental_)**2)*(tokenSupply_**2))
+                            +
+                            (2*(tokenPriceIncremental_)*_tokenPriceInitial*tokenSupply_)
+                        )
+                    ), _tokenPriceInitial
+                )
+            )/(tokenPriceIncremental_)
+        )-(tokenSupply_);
+</code></pre></li>
+<li><p>tokensToEthereum_</p>
+<pre><code>        uint256 tokens_ = (_tokens + 1e18);
+        uint256 _tokenSupply = (tokenSupply_ + 1e18);
+        uint256 _etherReceived =
+        (
+            // underflow attempts BTFO
+            SafeMath.sub(
+                (
+                    (
+                        (
+                            tokenPriceInitial_ +(tokenPriceIncremental_ * (_tokenSupply/1e18))
+                        )-tokenPriceIncremental_
+                    )*(tokens_ - 1e18)
+                ),(tokenPriceIncremental_*((tokens_**2-tokens_)/1e18))/2
+            )
+        /1e18);
+</code></pre></li>
+</ol>
 
                                 
                                 </section>
@@ -315,7 +358,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"JYT 的价格算法和机制","level":"3.1.5","depth":2,"previous":{"title":"如何获得 JYT ？","level":"3.1.4","depth":2,"path":"jyt/jyt40.md","ref":"jyt/jyt40.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["fontsettings","sharing","lunr","search","highlight","livereload"],"pluginsConfig":{"fontsettings":{"family":"sans","size":2,"theme":"white"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"lunr":{"ignoreSpecialCharacters":false,"maxIndexSize":1000000},"search":{},"highlight":{},"livereload":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"jyt/jyt50.md","mtime":"2018-12-28T05:58:11.562Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-28T05:58:55.403Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"JYT 的价格算法和机制","level":"3.1.5","depth":2,"previous":{"title":"如何获得 JYT ？","level":"3.1.4","depth":2,"path":"jyt/jyt40.md","ref":"jyt/jyt40.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["fontsettings","sharing","lunr","search","highlight","livereload"],"pluginsConfig":{"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"search":{},"highlight":{},"livereload":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"jyt/jyt50.md","mtime":"2018-12-28T13:06:18.692Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-28T13:25:27.511Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
