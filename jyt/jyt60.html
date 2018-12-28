@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>JYT 的价格算法 · GitBook</title>
+        <title>结约基金 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="jyt60.html" />
     
-    
-    <link rel="prev" href="jyt40.html" />
+    <link rel="prev" href="jyt50.html" />
     
 
     </head>
@@ -214,7 +212,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="3.1.5" data-path="jyt50.html">
+        <li class="chapter " data-level="3.1.5" data-path="jyt50.html">
             
                 <a href="jyt50.html">
             
@@ -227,7 +225,7 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.6" data-path="jyt60.html">
+        <li class="chapter active" data-level="3.1.6" data-path="jyt60.html">
             
                 <a href="jyt60.html">
             
@@ -275,7 +273,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >JYT 的价格算法</a>
+        <a href=".." >结约基金</a>
     </h1>
 </div>
 
@@ -290,49 +288,15 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="jyt-&#x7684;&#x4EF7;&#x683C;&#x7B97;&#x6CD5;">JYT &#x7684;&#x4EF7;&#x683C;&#x7B97;&#x6CD5;</h1>
+                                <h1 id="&#x7ED3;&#x7EA6;&#x57FA;&#x91D1;">&#x7ED3;&#x7EA6;&#x57FA;&#x91D1;</h1>
 <ol>
-<li><p>&#x521D;&#x59CB;&#x4EF7;&#x683C; 0.0000001 ETH / JYT</p>
+<li><p><a href="https://etherscan.io/address/0xd10fa3e6f58d97bd004aa459fbe3d2a4760765aa" target="_blank">&#x7ED3;&#x7EA6;&#x57FA;&#x91D1;&#x94B1;&#x5305;&#x5730;&#x5740;</a></p>
 </li>
-<li><p>ethereumToTokens_</p>
-<pre><code>        uint256 _tokenPriceInitial = tokenPriceInitial_ * 1e18;
-        uint256 _tokensReceived = 
-         (
-            (
-                // underflow attempts BTFO
-                SafeMath.sub(
-                    (sqrt
-                        (
-                            (_tokenPriceInitial**2)
-                            +
-                            (2*(tokenPriceIncremental_ * 1e18)*(_ethereum * 1e18))
-                            +
-                            (((tokenPriceIncremental_)**2)*(tokenSupply_**2))
-                            +
-                            (2*(tokenPriceIncremental_)*_tokenPriceInitial*tokenSupply_)
-                        )
-                    ), _tokenPriceInitial
-                )
-            )/(tokenPriceIncremental_)
-        )-(tokenSupply_);
-</code></pre></li>
-<li><p>tokensToEthereum_</p>
-<pre><code>        uint256 tokens_ = (_tokens + 1e18);
-        uint256 _tokenSupply = (tokenSupply_ + 1e18);
-        uint256 _etherReceived =
-        (
-            // underflow attempts BTFO
-            SafeMath.sub(
-                (
-                    (
-                        (
-                            tokenPriceInitial_ +(tokenPriceIncremental_ * (_tokenSupply/1e18))
-                        )-tokenPriceIncremental_
-                    )*(tokens_ - 1e18)
-                ),(tokenPriceIncremental_*((tokens_**2-tokens_)/1e18))/2
-            )
-        /1e18);
-</code></pre></li>
+<li><p>&#x6BCF;&#x5468;&#x8FD9;&#x4E2A;&#x94B1;&#x5305;&#x5730;&#x5740;&#xFF0C;&#x5C06;&#x6839;&#x636E;&#x516C;&#x4F17;&#x53F7;&#xFF1A;&#x5973;&#x5E01;&#x4E3B;&#x5927;&#x5C0F;&#x59D0; &#x7684;&#x6DA8;&#x7C89;&#x60C5;&#x51B5;&#xFF0C;&#x6253;&#x5165; ETH &#x5230; JYT &#x667A;&#x80FD;&#x5408;&#x7EA6;&#xFF1A;</p>
+<blockquote>
+<p>&#x6839;&#x636E;&#x6BCF;&#x5468;&#x516C;&#x4F17;&#x53F7;&#x7C89;&#x4E1D;&#x7684;&#x51C0;&#x589E;&#x957F;&#x6570;&#xFF0C;&#x6309;1&#x7C89;/1&#x5143;&#x7684;&#x6BD4;&#x4F8B;&#xFF0C;&#x5C06;&#x7B49;&#x503C; ETH &#x62B5;&#x62BC;&#x8FDB;&#x667A;&#x80FD;&#x5408;&#x7EA6;&#xFF08;&#x4E0D;&#x8DB3;500&#x7C89;&#x65F6;&#x7B97;500&#xFF09;&#xFF0C;&#x800C;&#x751F;&#x6210;&#x7684;&#x201C;&#x7ED3;&#x7EA6;&#x901A;&#x8BC1;&#x201D;&#xFF0C;&#x5219;&#x5C06;&#x5168;&#x90E8;&#x4F5C;&#x4E3A;&#x7ED3;&#x7EA6;&#x57FA;&#x91D1;&#x7684;&#x4EFD;&#x989D;&#xFF0C;&#x5956;&#x52B1;&#x7ED9;&#x793E;&#x533A;&#x8D21;&#x732E;&#x8005;&#x3002;</p>
+</blockquote>
+</li>
 </ol>
 
                                 
@@ -361,14 +325,10 @@
 
             
                 
-                <a href="jyt40.html" class="navigation navigation-prev " aria-label="Previous page: 如何获得 JYT ？">
+                <a href="jyt50.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: JYT 的价格算法">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="jyt60.html" class="navigation navigation-next " aria-label="Next page: 结约基金">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -377,7 +337,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"JYT 的价格算法","level":"3.1.5","depth":2,"next":{"title":"结约基金","level":"3.1.6","depth":2,"path":"jyt/jyt60.md","ref":"jyt/jyt60.md","articles":[]},"previous":{"title":"如何获得 JYT ？","level":"3.1.4","depth":2,"path":"jyt/jyt40.md","ref":"jyt/jyt40.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["fontsettings","sharing","lunr","search","highlight","livereload"],"pluginsConfig":{"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"search":{},"highlight":{},"livereload":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"jyt/jyt50.md","mtime":"2018-12-28T13:31:21.946Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-28T13:32:01.288Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"结约基金","level":"3.1.6","depth":2,"previous":{"title":"JYT 的价格算法","level":"3.1.5","depth":2,"path":"jyt/jyt50.md","ref":"jyt/jyt50.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["fontsettings","sharing","lunr","search","highlight","livereload"],"pluginsConfig":{"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"search":{},"highlight":{},"livereload":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"jyt/jyt60.md","mtime":"2018-12-28T13:25:29.710Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-28T13:32:01.288Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
